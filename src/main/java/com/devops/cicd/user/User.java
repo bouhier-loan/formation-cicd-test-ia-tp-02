@@ -16,9 +16,13 @@ public class User {
         // En cas d'erreur: IllegalArgumentException avec un message explicite
         // ("email must be valid", "password must be strong", "role must not be null")
 
-        this.email = normalizeEmail(email);
-        this.password = checkPassword(password);
-        this.role = checkRole(role);
+        String validatedEmail = normalizeEmail(email);
+        String validatedPassword = checkPassword(password);
+        Role validatedRole = checkRole(role);
+
+        this.email = validatedEmail;
+        this.password = validatedPassword;
+        this.role = validatedRole;
     }
 
     private Role checkRole(Role role) {
